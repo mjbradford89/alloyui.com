@@ -1,0 +1,46 @@
+{namespace layout}
+
+/**
+ * @param baseDir
+ * @param content
+ * @param title
+ * @param description
+ */
+{template .tutorial}
+{call layout.default}
+  {param baseDir: $baseDir /}
+  {param title: $title /}
+  {param content}
+    <div class="row">
+      <div class="col-sm-9">
+          <h6 id="single-title">{$title}</h6>
+
+          <p>{$description}</p>
+
+          <hr>
+
+          {$content|noAutoescape}
+      </div>
+      <div class="col-sm-3">
+          <ul class="nav nav-pills nav-stacked">
+              // <% for tutorial in @getCollection("tutorials").toJSON(): %>
+              //     <% if tutorial.title && !tutorial.index: %>
+              //         <% if tutorial.url == @document.url: %>
+              //             <li class="active"><a href="<%= tutorial.url %>">
+              //                 <span class="glyphicon glyphicon-chevron-right"></span>
+              //         <% else: %>
+              //             <li><a href="<%= tutorial.url %>">
+              //         <% end %>
+              //             <%= tutorial.title %></a>
+              //         </li>
+              //     <% end %>
+              // <% end %>
+          </ul>
+      </div>
+
+  </div>
+
+  <link rel="stylesheet" href="{$baseDir}/css/single.css">
+  {/param}
+{/call}
+{/template}

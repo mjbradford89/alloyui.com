@@ -1,0 +1,95 @@
+{namespace layout}
+
+/**
+ * @param baseDir
+ * @param title
+ * @param description
+ * @param category
+ * @param content
+ * @param config
+ */
+{template .example}
+{call layout.default}
+  {param baseDir: $baseDir /}
+  {param title: $title /}
+  {param category: $category /}
+  {param content}
+    <div class="row">
+        <div class="col-sm-9">
+            <h6 id="single-title">{$title}</h6>
+
+            <div id="single-dropdown" class="btn-group">
+                <button type="button" class="btn btn-default">
+                    <span class="glyphicon glyphicon-new-window"></span> API Docs
+                </button>
+                <button type="button" class="btn btn-default dropdown-toggle">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="http://alloyui.com/api/carousel#attributes">Attributes</a></li>
+                    <li><a href="http://alloyui.com/api/carousel#events">Events</a></li>
+                    <li><a href="http://alloyui.com/api/carousel#methods">Methods</a></li>
+                </ul>
+            </div>
+
+            <ul id="single-tabs" class="nav nav-tabs">
+                // <% for example in @getCollection("examples").toJSON():}
+                //     <% if example.intro && @isRelated(example): %>
+                //         <% if example.url == @document.url: %>
+                //             <li class="active">
+                //         <% else: %>
+                //             <li>
+                //         <% end %>
+                //             <a href="<%= example.url %>">Introduction</a></li>
+                //     <% end %>
+                // <% end %>
+
+                // <% for example in @getCollection("examples").toJSON(): %>
+                //     <% if !example.intro && @isRelated(example): %>
+                //         <% if example.url == @document.url: %>
+                //             <li class="active">
+                //         <% else: %>
+                //             <li>
+                //         <% end %>
+                //             <a href="<%= example.url %>"><%= example.title %></a></li>
+                //     <% end %>
+                // <% end %>
+            </ul>
+
+            <p>{$description}</p>
+
+            <hr>
+
+            {$content|noAutoescape}
+
+            <div class="alert alert-info">
+                For more information about configuration, check out our <a href="http://alloyui.com/api/carousel" target="_blank">API Docs</a>.
+            </div>
+        </div>
+        <div class="col-sm-3">
+          {call .modules}
+            {param modules: $config.collections.all /}
+          {/call}
+        </div>
+
+    </div>
+
+    <!-- <script src="{$baseDir}/js/single.js"></script> -->
+
+    <link rel="stylesheet" href="{$baseDir}/css/single.css">
+  {/param}
+{/call}
+{/template}
+
+
+/**
+ * @param modules
+ */
+{template .modules}
+  <ul class="nav nav-pills nav-stacked">
+    {foreach $module in $modules}
+      <li><a href="{$module.name}">{$module.title}</a></li>
+    {/foreach}
+  </ul>
+{/template}

@@ -1,0 +1,40 @@
+{namespace examples.ace.basic}
+
+/**
+ * @param config
+ */
+{template .soyweb}
+{call layout.example}
+  {param baseDir: '../..' /}
+  {param config: $config /}
+  {param name: 'basic.html' /}
+  {param title: 'Basic Examples' /}
+  {param description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, delectus.' /}
+  {param category: $config.modules['ace-editor'].title /}
+  {param content}
+    <link rel="stylesheet" href="./assets/css/basic.css">
+
+    {literal}
+    @@include('./basic-markup.html')
+    {/literal}
+
+    <pre><code>
+    {literal}
+    @@include(escape('./basic-markup.html'))
+    {/literal}
+    </code></pre>
+
+    <pre><code>
+    {literal}
+    @@include('./basic.js')
+    {/literal}
+    </code></pre>
+
+    <script>
+      {literal}
+      @@include('./basic.js')
+      {/literal}
+    </script>
+  {/param}
+{/call}
+{/template}

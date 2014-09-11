@@ -1,0 +1,54 @@
+{namespace layout}
+
+/**
+ * @param baseDir
+ * @param content
+ */
+{template .main}
+<!doctype html>
+<html lang="en">
+<head>
+    <title>AlloyUI</title>
+
+    <meta charset="utf-8">
+    <meta name="author" content="Eduardo Lundgren, Nate Cavanaugh">
+    <meta name="description" content="AlloyUI is a framework built on top of YUI3 (JavaScript) that uses Bootstrap (HTML/CSS) to provide a simple API for building high scalable applications.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Facebook Tags -->
+    <meta property="fb:app_id" content="176947299114210">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://alloyui.com/">
+    <meta property="og:image" content="{$baseDir}/images/facebook-share.jpg">
+    <meta property="og:title" content="AlloyUI">
+    <meta property="og:description" content="AlloyUI is a framework built on top of YUI3 (JavaScript) that uses Bootstrap (HTML/CSS) to provide a simple API for building high scalable applications.">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{$baseDir}/images/favicon.ico" type="image/x-icon">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Dosis|Roboto:400,700,700italic,400italic">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="http://cdn.alloyui.com/3.0.0pr2/aui-css/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{$baseDir}/styles/main.css">
+    <link rel="stylesheet" href="{$baseDir}/styles/navbar.css">
+    <link rel="stylesheet" href="{$baseDir}/styles/page.css">
+    <link rel="stylesheet" href="{$baseDir}/styles/examples.css">
+    <link rel="stylesheet" href="{$baseDir}/styles/code.css">
+    <link rel="stylesheet" href="{$baseDir}/styles/footer.css">
+
+    <!-- JS -->
+    <script src="http://cdn.alloyui.com/3.0.0pr2/aui/aui-min.js"></script>
+</head>
+<body>
+    {$content|noAutoescape}
+
+    {call partial.footer}
+      {param baseDir: $baseDir /}
+    {/call}
+
+    <script src="{$baseDir}/scripts/navbar.js"></script>
+</body>
+</html>
+{/template}

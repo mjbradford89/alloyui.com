@@ -1,0 +1,127 @@
+{namespace home.index}
+
+/**
+ * This template will be rendered by SoyWeb when the user loads static.soy.
+ * It deliberately includes dummy data so the designer can get a feel for how
+ * the task list will appear with real data rather with minimal copy and paste.
+ */
+{template .soyweb}
+{call layout.main}
+  {param baseDir: '.' /}
+  {param content}
+      <link rel="stylesheet" href="./styles/home.css">
+      <header class="home-header">
+          <div class="stars"></div>
+          <div class="twinkling"></div>
+
+          {call partial.navbar}
+            {param baseDir: '.' /}
+          {/call}
+
+          <div class="container">
+              <div class="row">
+                  <div class="col-sm-8 move-up">
+                      <div class="h1-group">
+                          <h1>The Power of <span>YUI</span></h1>
+                          <h1>The Flexibility of <span>Bootstrap</span></h1>
+                      </div>
+                      <h2>AlloyUI is a JavaScript framework that provides a simple API for building high scalable applications</h2>
+                      <div class="call-to-action">
+                          <a class="btn btn-lg btn-success">
+                              <span class="glyphicon glyphicon-cloud-download"></span>
+                              Download
+                          </a>
+                          <a class="btn btn-lg btn-info">
+                              <span class="glyphicon glyphicon-resize-small"></span>
+                              Fork
+                          </a>
+                      </div>
+                  </div>
+                  <div class="col-sm-4 move-down">
+                      <img id="dog-header" src="./images/dog-header.png" alt="">
+                  </div>
+              </div>
+          </div>
+      </header>
+
+      <div class="testimonials">
+          <div class="container">
+              <blockquote class="testimonial-quote">
+                  <p>When AlloyUI arrived on the scene, it added a new dimension to YUI contributorship. Professional, robust, and beautifully designed, the Alloy project and its engineers created a world of new options for YUI implementers, and it helped the YUI project turn the corner to become a contributor-driven, community-owned open source project."</p>
+                  <cite class="testimonial-author">
+                      <p><strong>Eric Miraglia</strong></p>
+                      <p><em>Product Manager, Google Inc. &amp; Former YUI Manager</em></p>
+                  </cite>
+              </blockquote>
+          </div>
+      </div>
+
+      <section class="basic-tutorial home-section">
+          <div class="container">
+              <h3>Get Started</h3>
+              <div class="row">
+                  <div class="col-sm-9">
+                      <div class="instructions">
+                          <p class="instruction-title"><span class="instruction-order">1</span> Copy and paste</p>
+                          <p class="instruction-description">First load the seed and CSS files</p>
+                          <pre><code>{literal}&lt;script src="<%= @getCdnSeed() %>"&gt;&lt;/script&gt;
+      &lt;link href="<%= @getBootstrapCSS() %>" rel="stylesheet"&gt;&lt;/link&gt;{/literal}</code></pre>
+                      </div>
+
+                      <div class="instructions">
+                          <p class="instruction-title"><span class="instruction-order">2</span> Start using AlloyUI</p>
+                          <p class="instruction-description">Then initialize AlloyUI and load a module, e.g., Carousel</p>
+                          <pre><code>{literal}YUI().use(
+        'aui-carousel',
+        function(Y) {
+          // code goes here
+        }
+      );{/literal}</code></pre>
+                      </div>
+                      <a class="btn btn-primary" href="<%= @getSiteUrl() %>/tutorials/">Check out the full tutorial</a>
+                  </div>
+                  <div class="col-sm-3">
+                      <img id="dog-getstarted" src="./images/dog-getstarted.png" alt="">
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <section class="why-who home-section">
+          <div class="container">
+              <div class="row">
+                  <div class="why col-sm-9 col-md-8">
+                      <h3>Why AlloyUI</h3>
+                      <p>A lot of people ask, why they should invest their time on AlloyUI? Or why not just use jQuery with their gigantic ecosystem of plugins?</p>
+                      <p>The thing is, DOM manipulation is just the tip of the iceberg when you are talking about modern and highly scalable applications. You’ll probably need another library for templating (like Mustache / Handlebars), another for modular loading (like RequireJS/HeadJS), another for MVC structuring (like Backbone/Ember), another for UI components (like jQueryUI/ExtJS) and so on.</p>
+                      <p>Well, AlloyUI comes with all of those things together. So there’s no mess between different libraries, just a uniform API that makes your life easier. It’s mantained by highly qualified engineers of Liferay, it’s built on top of YUI3 (an awesome project made by Yahoo!) and uses Bootstrap (another cool project made by Twitter).</p>
+                  </div>
+                  <div class="who col-sm-3 col-md-3 col-md-offset-1">
+                      <h3>Who's using it</h3>
+                      <p>
+                          <a href="http://liferay.com">
+                              <img src="./images/showcase-liferay.png" alt="Showcase - Liferay" width="148" height="36">
+                          </a>
+                      </p>
+                      <p>
+                          <a href="http://developer.cisco.com/">
+                              <img src="./images/showcase-cisco.png" alt="Showcase - Cisco" width="112" height="60">
+                          </a>
+                      </p>
+                      <p>
+                          <a href="http://www.sesamestreet.org/">
+                              <img src="./images/showcase-sesame.png" alt="Showcase - Sesame Street" width="160" height="58">
+                          </a>
+                      </p>
+                      <p>
+                          <a href="http://www.lufthansa-flight-training.com/en/home">
+                              <img src="./images/showcase-lufthansa.png" alt="Showcase - Lufthansa" width="177" height="30">
+                          </a>
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </section>
+  {/param}
+{/call}
+{/template}

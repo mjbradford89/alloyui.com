@@ -1,0 +1,32 @@
+{namespace layout}
+
+/**
+ * @param baseDir
+ * @param title
+ * @param? category
+ * @param content
+ */
+{template .default}
+{call layout.main}
+  {param baseDir: $baseDir /}
+  {param content}
+    <header class="main-header">
+        {call partial.navbar}
+          {param baseDir: $baseDir /}
+        {/call}
+    </header>
+
+    <main id="@document.title">
+        <header class="page-title">
+            <h5>{if $category}{$category}{else}{$title}{/if}</h5>
+        </header>
+
+        <div class="page-content">
+            <div class="container">
+                {$content|noAutoescape}
+            </div>
+        </div>
+    </main>
+  {/param}
+{/call}
+{/template}

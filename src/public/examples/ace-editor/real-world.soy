@@ -1,0 +1,39 @@
+{namespace examples.ace.real}
+
+/**
+ * @param config
+ */
+{template .soyweb}
+{call layout.example}
+  {param baseDir: '../..' /}
+  {param config: $config /}
+  {param title: $config.modules['ace-editor'].title /}
+  {param description: $config.modules['ace-editor'].description /}
+  {param category: 'Examples' /}
+  {param content}
+    <link rel="stylesheet" href="./assets/css/basic.css">
+
+    {literal}
+    @@include('./real-world-markup.html')
+    {/literal}
+
+    <pre><code>
+    {literal}
+    @@include(escape('./real-world-markup.html'))
+    {/literal}
+    </code></pre>
+
+    <pre><code>
+    {literal}
+    @@include('./real-world.js')
+    {/literal}
+    </code></pre>
+
+    <script>
+      {literal}
+      @@include('./real-world.js')
+      {/literal}
+    </script>
+  {/param}
+{/call}
+{/template}

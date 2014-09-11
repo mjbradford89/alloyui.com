@@ -1,0 +1,97 @@
+{namespace examples.carousel.index}
+
+/**
+ * @param config
+ */
+{template .soyweb}
+{call layout.example}
+  {param baseDir: '../..' /}
+  {param config: $config /}
+  {param category: 'Examples' /}
+  {param title: $config.modules['carousel'].title /}
+  {param description: $config.modules['carousel'].description /}
+  {param content}
+    <h4>Getting Started</h4>
+
+    <p>First load the seed and CSS files, if you haven't yet.</p>
+
+    <pre><code>{literal}
+<script src="#"></script>
+<link href="#" rel="stylesheet"></link>
+    {/literal}</code></pre>
+
+    <p>Then initialize AlloyUI and load the Ace Editor module.</p>
+
+    <pre><code>{literal}
+YUI().use(
+  'aui-ace-editor',
+  function(Y) {
+    // code goes here
+  }
+);
+    {/literal}</code></pre>
+
+    <hr/>
+
+    <h4>Using Ace Editor</h4>
+
+    <p>Create an HTML element for the Ace Editor.</p>
+
+    <pre><code>{literal}
+    <div id="myEditor"></div>
+    {/literal}</code></pre>
+
+    <p>Now create a new instance of Ace Editor with the newly created element.</p>
+
+    <pre><code>{literal}
+YUI().use(
+  'aui-ace-editor',
+  function(Y) {
+    new Y.AceEditor(
+      {
+        boundingBox: '#myEditor'
+      }
+    ).render();
+  }
+);
+    {/literal}</code></pre>
+
+    <hr/>
+
+    <h4>Configuring Ace Editor</h4>
+
+    <p>Once a new instance of Ace Editor is created, the mode can be set to correspond to the language being typed.</p>
+
+    <pre><code>{literal}
+YUI().use(
+  'aui-ace-editor',
+  function(Y) {
+    new Y.AceEditor(
+      {
+        boundingBox: '#myEditor',
+        mode: 'javascript'
+      }
+    ).render();
+  }
+);
+    {/literal}</code></pre>
+
+    <p>The editor can also be set to load with content/code already written.</p>
+
+    <pre><code>{literal}
+YUI().use(
+  'aui-ace-editor',
+  function(Y) {
+    new Y.AceEditor(
+      {
+        boundingBox: '#myEditor',
+        mode: 'xml',
+        value: '<body id="content"></body>'
+      }
+    ).render();
+  }
+);
+    {/literal}</code></pre>
+  {/param}
+{/call}
+{/template}

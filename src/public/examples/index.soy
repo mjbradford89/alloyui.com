@@ -1,0 +1,44 @@
+{namespace examples.index}
+
+/**
+ * @param config
+ */
+{template .soyweb}
+{call layout.default}
+  {param baseDir: '..' /}
+  {param title: 'Examples' /}
+  {param content}
+    <section>
+        <h6>Recently Updated</h6>
+        {call .examples}
+          {param baseDir: '..' /}
+          {param config: $config /}
+          {param examples: $config.collections.recent /}
+        {/call}
+
+        <h6>And more</h6>
+        {call .examples}
+          {param baseDir: '..' /}
+          {param config: $config /}
+          {param examples: $config.collections.more /}
+        {/call}
+    </section>
+  {/param}
+{/call}
+{/template}
+
+/**
+ * @param baseDir
+ * @param examples
+ */
+{template .examples}
+  <div class="row">
+    {foreach $example in $examples}
+      <a class="example-item col-xs-12 col-sm-6 col-md-3" href="{$baseDir}/examples/{$example.name}">
+        <img class="example-item-image" src="{$baseDir}/examples/{$example.name}/assets/img/icon.svg" alt="{$example.title}">
+        <h3 class="example-item-title">{$example.title}</h3>
+        <p class="example-item-description">{$example.description}</p>
+      </a>
+    {/foreach}
+  </div>
+{/template}

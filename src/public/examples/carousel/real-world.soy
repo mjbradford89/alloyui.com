@@ -1,0 +1,35 @@
+{namespace examples.carousel.real}
+
+/**
+ * @param config
+ */
+{template .soyweb}
+{call layout.example}
+  {param baseDir: '../..' /}
+  {param config: $config /}
+  {param category: 'Examples' /}
+  {param title: $config.modules['carousel'].title /}
+  {param description: $config.modules['carousel'].description /}
+  {param content}
+    <link rel="stylesheet" href="./assets/css/real-world.css">
+
+    {literal}
+    @@include('./basic-markup.html')
+    {/literal}
+
+    <pre><code>{literal}
+@@include(escape('./basic-markup.html'))
+    {/literal}</code></pre>
+
+    <pre><code>{literal}
+@@include('./real-world.js')
+    {/literal}</code></pre>
+
+    <script>
+      {literal}
+      @@include('./real-world.js')
+      {/literal}
+    </script>
+  {/param}
+{/call}
+{/template}
